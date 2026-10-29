@@ -7,6 +7,75 @@ Exact source commits are in `sources.lock.json`.
 Both HEADs and tags were independently checked against upstream on 2026-10-28
 using `make fetch`; both match the locked commits.
 
+## Current verification results (2026-10-29)
+
+The actual-code finite policy matrix passed **3,960 access observations and
+1,800 structural checks** across 36 fixtures. It checks ancestor grants,
+protected descendants, similar-name siblings, duplicate grants and explicit
+protected-path overrides using the pinned Codex transformation and resolver.
+See [the matrix report](evidence/POLICY_MATRIX.md),
+[complete observations](evidence/policy-matrix.json), and
+[the scoped claim](verification/SCOPED_CLAIM.md). This exhausts its declared
+finite domain; it is not a universal containment proof.
+
+Small ordinary Kani probes completed for URI parsing, selected equality and
+cloning operations, empty-policy grant insertion, and identity cases, with
+deliberate failure controls. Nonempty merges and fixed resolver checks remain
+inconclusive. The end-to-end retry reached its 60-minute wall limit at 14.87 GiB
+sampled RSS. See [staged results](evidence/KANI_STAGES.md),
+[component results](evidence/KANI_COMPONENTS.md), and
+[the cloud retry](evidence/CLOUD_RETRY_60M.md).
+
+The experimental contract path has a standalone model-validation reproducer:
+a constant-returning function triggers an internal function-type inconsistency
+under Kani 0.68.0 / CBMC 6.11.0. Default-mode positive and false controls behave
+as expected, so no false proof is claimed. Contract-based composition is paused
+pending a validated tool repair. See [the investigation](evidence/KANI_CONTRACT_INVESTIGATION.md)
+and [reproducer archive](evidence/kani-contract-validation-reproducer.tar.gz).
+The earlier 17 VM checks below are historical runtime evidence from another
+environment, not checks rerun in this cloud instance.
+
+## Cloud workflow
+
+After the environment's saved installation script has prepared repository-local
+tools, select them with `source scripts/cloud-env.sh`. That tracked helper is
+equivalent to the generated `.tools/activate.sh` used in recorded cloud runs.
+For global tool installations, use `source scripts/env.sh` instead.
+
+The native and diagnostic runners require the prepared pinned dependency
+worktree at `.tools/kani-source`. To initialize it when absent:
+
+```bash
+source scripts/cloud-env.sh
+make fetch
+mkdir -p .tools
+git -C upstream/codex worktree add --detach "$PWD/.tools/kani-source" 360319d8dee62d87e2d59fc0c21805d79519cfed
+python3 scripts/prepare-kani.py
+```
+
+This initialization applies only the documented workspace-version lockfile
+correction and original Kani harness hook in the dependency worktree. It does
+not change production function bodies. Skip worktree creation when it already
+exists; `python3 scripts/prepare-kani.py --check` checks prepared inputs.
+
+Then choose a bounded workflow:
+
+```bash
+python3 scripts/run-policy-matrix.py
+python3 scripts/run-protected-entry-case.py
+python3 scripts/profile-kani-stages.py --components
+python3 scripts/diagnose-kani-contracts.py
+```
+
+These commands are alternatives, not a required all-suites run. See each plan
+under `verification/` for budgets and scope. Runners refuse to overwrite prior
+output directories; the matrix runner also protects saved evidence files.
+Preserve those files before a repeat. Contract diagnostics intentionally record
+tool failures and do not establish a policy proof. Local tools, caches and raw
+working logs remain ignored; summaries and standalone report bundles are tracked.
+For a repeated staged probe, `--output-dir .tools/<fresh-name>` keeps the
+original stage evidence in place.
+
 ## Local commands
 
 ```
@@ -39,16 +108,18 @@ that Codex constructs that policy or that bubblewrap/Linux enforce it.
 Path normalization, symlinks, renames, races, mount construction, inherited file
 descriptors and kernel behavior remain outside the model. The runtime suite now
 provides finite integration evidence for selected cases; it is not a containment
-proof. There is no completed Kani result for Codex policy code or C verification.
+proof. Small actual-code Kani component checks have completed, but the intended
+nonempty-merge and path-containment theorem and C verification remain open.
 
-## Pending setup
+## Open verification work
 
 - Complete verification of the selected real policy transformation and connect its Kani contract to the model.
 - The actual Codex crate compiles under Kani, but the smoke harness remains
   inconclusive after resource-limited runs. See `evidence/KANI_CHECKPOINT.md`
-  and `verification/README.md` for the results and Cloud retry instructions.
+  and the current reports above for the results and limitations. Additional
+  unchanged long runs are not the recommended next step.
 
-## Environment check (2026-10-28)
+## Historical environment check (2026-10-28)
 
 GitHub and PyPI DNS and HTTPS checks succeeded with TLS verification enabled.
 No proxy variables or managed `/etc/codex/network-policy.json` are present;
