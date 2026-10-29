@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-c",
+    "import time; time.sleep(60)"
+  ],
+  "cwd": "/home/egly443/Projects/safety",
+  "status": "stopped",
+  "started_utc": "2026-10-29T01:45:11.578489+00:00",
+  "wall_limit_seconds": 2,
+  "rss_limit_bytes": 107374182,
+  "rss_guard": "sampled aggregate process-group RSS, one-second interval",
+  "minimum_free_bytes": 21773545472,
+  "elapsed_seconds": 2.005,
+  "peak_sampled_rss_bytes": 9605120,
+  "exit_code": -15,
+  "stop_reason": "wall_limit"
+}

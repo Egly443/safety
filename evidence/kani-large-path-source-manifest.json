@@ -1,0 +1,13 @@
+{
+  "commit": "360319d8dee62d87e2d59fc0c21805d79519cfed",
+  "source_sha256": {
+    "codex-rs/sandboxing/src/policy_transforms.rs": "476149951168b716e0010985e5c98b1e6bb7f9627c074621aa22249964b983a9",
+    "codex-rs/protocol/src/permissions.rs": "ba815705a004571cb1772d9ae97c30075fc6e3ed16c1a1b151ad64c0d459e0dd",
+    "codex-rs/utils/path-uri/src/lib.rs": "9758b664571dd19490fa844d67d8c43683db8eace98929a4545bf613f1cd1eba"
+  },
+  "hook": "\n#[cfg(kani)]\n#[path = \"/home/egly443/Projects/safety/verification/kani/narrow_policy.rs\"]\nmod confinement_verification;\n",
+  "harness_sha256": "376df8cb8d9de5f2b12fe630bee52594e07c7ab61436a46f57e3bcfbf3ab1d61",
+  "lock_sha256": "a646d4b01a0e8c62f6af9b74fb965c1bd6d3cf27a547984de09730d50e0e64da",
+  "stubs": [],
+  "production_function_changes": []
+}

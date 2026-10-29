@@ -1,0 +1,18 @@
+{
+  "command": [
+    "/usr/bin/python3",
+    "-c",
+    "print('guard-ok')"
+  ],
+  "cwd": "/home/egly443/Projects/safety",
+  "status": "finished",
+  "started_utc": "2026-10-29T01:45:10.507469+00:00",
+  "wall_limit_seconds": 10,
+  "rss_limit_bytes": 107374182,
+  "rss_guard": "sampled aggregate process-group RSS, one-second interval",
+  "minimum_free_bytes": 21773598720,
+  "elapsed_seconds": 1.002,
+  "peak_sampled_rss_bytes": 3977216,
+  "exit_code": 0,
+  "stop_reason": null
+}

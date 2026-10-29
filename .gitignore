@@ -1,0 +1,11 @@
+.venv/
+.tools/
+upstream/
+.lake/
+proof/.lake/
+verification/target/
+__pycache__/
+.pytest_cache/
+evidence/*.log
+session-*.txt
+error.log

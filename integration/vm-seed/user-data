@@ -1,0 +1,10 @@
+#cloud-config
+users: []
+ssh_pwauth: false
+package_update: false
+runcmd:
+  - [sh, -c, 'uname -a > /dev/ttyS0; findmnt -no FSTYPE / > /dev/ttyS0; sha256sum /boot/config-* > /dev/ttyS0; echo SAFETY_VM_READY > /dev/ttyS0']
+power_state:
+  mode: poweroff
+  timeout: 120
+  condition: true

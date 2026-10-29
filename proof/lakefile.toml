@@ -1,0 +1,6 @@
+name = "confinement"
+version = "0.1.0"
+defaultTargets = ["Confinement"]
+
+[[lean_lib]]
+name = "Confinement"

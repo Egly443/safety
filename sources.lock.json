@@ -1,0 +1,13 @@
+{
+  "provenance": "Pins supplied by session transcript; upstream HEAD and tag commits verified by make fetch on 2026-10-28",
+  "codex": {
+    "url": "https://github.com/openai/codex.git",
+    "tag": "rust-v0.165.0",
+    "commit": "360319d8dee62d87e2d59fc0c21805d79519cfed"
+  },
+  "bubblewrap": {
+    "url": "https://github.com/containers/bubblewrap.git",
+    "tag": "v0.13.1",
+    "commit": "362936aea0d5c6e70f7af75d2d44b5a914cb4ba2"
+  }
+}

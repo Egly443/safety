@@ -1,0 +1,30 @@
+{
+  "rust": "1.99.1",
+  "rust_components": [
+    "clippy",
+    "rustfmt",
+    "rust-src"
+  ],
+  "kani": "0.68.0",
+  "kani_rust": "nightly-2026-08-21",
+  "cbmc": "6.11.0",
+  "meson": "1.12.1",
+  "libcap_deb": "1:2.66-5ubuntu2.4",
+  "bubblewrap": "0.13.1",
+  "bubblewrap_selinux": false,
+  "qemu": "8.2.2",
+  "vm": {
+    "url": "https://cloud-images.ubuntu.com/minimal/releases/noble/release-20261027/ubuntu-24.04-minimal-cloudimg-amd64.img",
+    "sha256": "3839f148c5a3b4a736e7dbb0af75594743fa5ebee2a202424ba1a32e5d3b5d2c",
+    "kernel": "6.8.0-147-generic",
+    "kernel_config_sha256": "cf8454bc2e67effab87a5bff3c39042f2d8d106b6a777c4302e52f50d23b7400",
+    "root_filesystem": "ext4",
+    "acceleration": "tcg",
+    "network_devices": 0,
+    "kernel_sha256": "41ba36d860aa0b0cd995f4ca8856d80249b244577e704929b55be13fbd1ebd2f",
+    "containment_boot_masks": [
+      "systemd-networkd-wait-online.service"
+    ],
+    "apparmor_restrict_unprivileged_userns": 0
+  }
+}

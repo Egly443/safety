@@ -1,0 +1,363 @@
+{
+  "binary_ownership": {
+    "/usr/local/bin/bwrap": {
+      "mode": "0o755",
+      "uid": 0
+    },
+    "/usr/local/bin/codex": {
+      "mode": "0o755",
+      "uid": 0
+    },
+    "/usr/local/bin/codex-linux-sandbox": {
+      "mode": "0o755",
+      "uid": 0
+    }
+  },
+  "diagnostic_trace": {
+    "exec_trace": "742   execve(\"/usr/local/bin/codex-linux-sandbox\", [\"/usr/local/bin/codex-linux-sandbox\", \"--sandbox-policy-cwd\", \"/var/lib/safety-fixtures/workspace\", \"--permission-profile\", \"{\\\"type\\\": \\\"managed\\\", \\\"network\\\": \\\"restricted\\\", \\\"file_system\\\": {\\\"type\\\": \\\"restricted\\\", \\\"entries\\\": [{\\\"path\\\": {\\\"type\\\": \\\"path\\\", \\\"path\\\": \\\"/\\\"}, \\\"access\\\": \\\"read\\\"}, {\\\"path\\\": {\\\"type\\\": \\\"path\\\", \\\"path\\\": \\\"/var/lib/safety-fixtures/workspace\\\"}, \\\"access\\\": \\\"write\\\"}, {\\\"path\\\": {\\\"type\\\": \\\"path\\\", \\\"path\\\": \\\"/var/lib/safety-fixtures/workspace/protected\\\"}, \\\"access\\\": \\\"read\\\"}]}}\", \"--\", \"/usr/bin/true\"], 0x7ffeeb15a7b8 /* 3 vars */) = 0\n743   execve(\"/usr/local/bin/bwrap\", [\"/usr/local/bin/bwrap\", \"--help\"], 0x7fffb039a5b8 /* 3 vars */) = 0\n743   +++ exited with 0 +++\n742   --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=743, si_uid=1000, si_status=0, si_utime=3 /* 0.03 s */, si_stime=1 /* 0.01 s */} ---\n744   execve(\"/usr/local/bin/bwrap\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--tmpfs\", \"/\", \"--dev\", \"/dev\", \"--ro-bind\", \"/bin\", \"/bin\", \"--ro-bind\", \"/etc\", \"/etc\", \"--ro-bind\", \"/lib\", \"/lib\", \"--ro-bind\", \"/lib64\", \"/lib64\", \"--ro-bind\", \"/sbin\", \"/sbin\", \"--ro-bind\", \"/usr\", \"/usr\", \"--unshare-user\", \"--unshare-pid\", \"--unshare-ipc\", \"--unshare-net\", \"--proc\", \"/proc\", \"--cap-drop\", \"ALL\", \"--\", \"/usr/bin/true\"], 0x7fffb039a5b8 /* 3 vars */) = 0\n745   execve(\"/usr/bin/true\", [\"/usr/bin/true\"], 0x64cccf9946c0 /* 4 vars */) = 0\n745   +++ exited with 0 +++\n744   +++ exited with 0 +++\n742   --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=744, si_uid=1000, si_status=0, si_utime=3 /* 0.03 s */, si_stime=3 /* 0.03 s */} ---\n746   execve(\"/usr/local/bin/bwrap\", [\"bwrap\", \"--as-pid-1\", \"--new-session\", \"--die-with-parent\", \"--ro-bind\", \"/\", \"/\", \"--dev\", \"/dev\", \"--perms\", \"000\", \"--tmpfs\", \"/tmp/codex-daemon-1000\", \"--remount-ro\", \"/tmp/codex-daemon-1000\", \"--bind\", \"/var/lib/safety-fixtures/workspace\", \"/var/lib/safety-fixtures/workspace\", \"--ro-bind\", \"/var/lib/safety-fixtures/workspace/.codex\", \"/var/lib/safety-fixtures/workspace/.codex\", \"--ro-bind\", \"/var/lib/safety-fixtures/workspace/protected\", \"/var/lib/safety-fixtures/workspace/protected\", \"--perms\", \"555\", \"--tmpfs\", \"/var/lib/safety-fixtures/workspace/.git\", \"--remount-ro\", \"/var/lib/safety-fixtures/workspace/.git\", \"--perms\", \"555\", \"--tmpfs\", \"/var/lib/safety-fixtures/workspace/.agents\", \"--remount-ro\", \"/var/lib/safety-fixtures/workspace/.agents\", \"--perms\", \"555\", \"--tmpfs\", \"/var/lib/safety-fixtures/workspace/.aws\", \"--remount-ro\", \"/var/lib/safety-fixtures/workspace/.aws\", \"--unshare-user\", \"--unshare-pid\", \"--unshare-ipc\", \"--unshare-net\", \"--proc\", \"/proc\", \"--cap-drop\", \"ALL\", \"--argv0\", \"codex-linux-sandbox\", \"--\", \"/usr/local/bin/codex-linux-sandbox\", \"--sandbox-policy-cwd\", \"/var/lib/safety-fixtures/workspace\", \"--permission-profile\", \"{\\\"type\\\":\\\"managed\\\",\\\"file_system\\\":{\\\"type\\\":\\\"restricted\\\",\\\"entries\\\":[{\\\"path\\\":{\\\"type\\\":\\\"path\\\",\\\"path\\\":\\\"/\\\"},\\\"access\\\":\\\"read\\\"},{\\\"path\\\":{\\\"type\\\":\\\"path\\\",\\\"path\\\":\\\"/var/lib/safety-fixtures/workspace\\\"},\\\"access\\\":\\\"write\\\"},{\\\"path\\\":{\\\"type\\\":\\\"path\\\",\\\"path\\\":\\\"/var/lib/safety-fixtures/workspace/protected\\\"},\\\"access\\\":\\\"read\\\"}]},\\\"network\\\":\\\"restricted\\\"}\", \"--apply-seccomp-then-exec\", \"--\", \"/usr/bin/true\"], 0x7fffb039a5b8 /* 3 vars */) = 0\n747   execve(\"/usr/local/bin/codex-linux-sandbox\", [\"codex-linux-sandbox\", \"--sandbox-policy-cwd\", \"/var/lib/safety-fixtures/workspace\", \"--permission-profile\", \"{\\\"type\\\":\\\"managed\\\",\\\"file_system\\\":{\\\"type\\\":\\\"restricted\\\",\\\"entries\\\":[{\\\"path\\\":{\\\"type\\\":\\\"path\\\",\\\"path\\\":\\\"/\\\"},\\\"access\\\":\\\"read\\\"},{\\\"path\\\":{\\\"type\\\":\\\"path\\\",\\\"path\\\":\\\"/var/lib/safety-fixtures/workspace\\\"},\\\"access\\\":\\\"write\\\"},{\\\"path\\\":{\\\"type\\\":\\\"path\\\",\\\"path\\\":\\\"/var/lib/safety-fixtures/workspace/protected\\\"},\\\"access\\\":\\\"read\\\"}]},\\\"network\\\":\\\"restricted\\\"}\", \"--apply-seccomp-then-exec\", \"--\", \"/usr/bin/true\"], 0x5c07a1df5810 /* 4 vars */) = 0\n748   execve(\"/usr/bin/true\", [\"/usr/bin/true\"], 0x7ffe03096a30 /* 4 vars */) = 0\n748   +++ exited with 0 +++\n747   --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=2, si_uid=1000, si_status=0, si_utime=2 /* 0.02 s */, si_stime=2 /* 0.02 s */} ---\n747   +++ exited with 0 +++\n746   +++ exited with 0 +++\n742   --- SIGCHLD {si_signo=SIGCHLD, si_code=CLD_EXITED, si_pid=746, si_uid=1000, si_status=0, si_utime=4 /* 0.04 s */, si_stime=3 /* 0.03 s */} ---\n742   +++ exited with 0 +++\n",
+    "returncode": 0,
+    "stderr": ""
+  },
+  "hashes": {
+    "/usr/local/bin/bwrap": "bc114a93fda4d0fe2da6dadc961efe593b9a4ab06f71a4f1c86f7cd44ec10ee4",
+    "/usr/local/bin/codex": "29b60ca5b79d0d85cf51c370b7d6be323656b29cefd1db269620c881000e3b31",
+    "/usr/local/bin/codex-linux-sandbox": "5822a3fe9f94760d28877aca77385fa7ef7ff457689f66a0605980b980328bf4"
+  },
+  "inherited_fds": [
+    "0",
+    "1",
+    "2",
+    "3"
+  ],
+  "kernel": "6.8.0-147-generic",
+  "profile": {
+    "file_system": {
+      "entries": [
+        {
+          "access": "read",
+          "path": {
+            "path": "/",
+            "type": "path"
+          }
+        },
+        {
+          "access": "write",
+          "path": {
+            "path": "/var/lib/safety-fixtures/workspace",
+            "type": "path"
+          }
+        },
+        {
+          "access": "read",
+          "path": {
+            "path": "/var/lib/safety-fixtures/workspace/protected",
+            "type": "path"
+          }
+        }
+      ],
+      "type": "restricted"
+    },
+    "network": "restricted",
+    "type": "managed"
+  },
+  "results": [
+    {
+      "name": "installed-cli-version",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "codex-cli 0.165.0\n"
+    },
+    {
+      "argv": [
+        "/usr/bin/python3",
+        "-c",
+        "from pathlib import Path; Path('/var/lib/safety-fixtures/outside/control').write_text('ok')"
+      ],
+      "name": "unsandboxed-outside-positive-control",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "from pathlib import Path; Path('/var/lib/safety-fixtures/workspace/allowed').write_text('ok'); import os,json; print(json.dumps({f: os.readlink('/proc/self/fd/'+f) for f in os.listdir('/proc/self/fd') if os.path.exists('/proc/self/fd/'+f)}))"
+      ],
+      "name": "permitted-workspace-write",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": "{\"0\": \"/dev/null\", \"1\": \"pipe:[5877]\", \"2\": \"pipe:[5878]\"}\n"
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "import errno\ntry:\n    open('/var/lib/safety-fixtures/outside/denied', 'w').write('escape')\nexcept OSError as e:\n    assert e.errno in (errno.EACCES, errno.EPERM, errno.EROFS), repr(e)\nelse:\n    raise AssertionError('write unexpectedly allowed')\n"
+      ],
+      "name": "outside-workspace-denied",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "import errno\ntry:\n    open('/var/lib/safety-fixtures/workspace/protected/sentinel', 'w').write('escape')\nexcept OSError as e:\n    assert e.errno in (errno.EACCES, errno.EPERM, errno.EROFS), repr(e)\nelse:\n    raise AssertionError('write unexpectedly allowed')\n"
+      ],
+      "name": "protected-subtree-denied",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "import errno\ntry:\n    open('/var/lib/safety-fixtures/workspace/escape/denied', 'w').write('escape')\nexcept OSError as e:\n    assert e.errno in (errno.EACCES, errno.EPERM, errno.EROFS), repr(e)\nelse:\n    raise AssertionError('write unexpectedly allowed')\n"
+      ],
+      "name": "symlink-outside-denied",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "import errno\ntry:\n    open('/var/lib/safety-fixtures/workspace/protected-alias/sentinel', 'w').write('escape')\nexcept OSError as e:\n    assert e.errno in (errno.EACCES, errno.EPERM, errno.EROFS), repr(e)\nelse:\n    raise AssertionError('write unexpectedly allowed')\n"
+      ],
+      "name": "symlink-protected-denied",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "from pathlib import Path; Path('/var/lib/safety-fixtures/workspace/new-file').write_text('ok')"
+      ],
+      "name": "missing-workspace-path-created",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "import errno\ntry:\n    open('/var/lib/safety-fixtures/outside/missing-file', 'w').write('escape')\nexcept OSError as e:\n    assert e.errno in (errno.EACCES, errno.EPERM, errno.EROFS), repr(e)\nelse:\n    raise AssertionError('write unexpectedly allowed')\n"
+      ],
+      "name": "missing-outside-path-denied",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "import subprocess,sys; subprocess.run([sys.executable,\"-c\",\"import errno\\ntry:\\n    open('/var/lib/safety-fixtures/workspace/protected/child', 'w').write('escape')\\nexcept OSError as e:\\n    assert e.errno in (errno.EACCES, errno.EPERM, errno.EROFS), repr(e)\\nelse:\\n    raise AssertionError('write unexpectedly allowed')\\n\"],check=True)"
+      ],
+      "name": "descendant-write-denied",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "import socket,errno\ntry:\n    socket.socket(socket.AF_INET, socket.SOCK_STREAM)\nexcept OSError as e:\n    assert e.errno in (errno.EPERM,errno.EACCES), repr(e)\nelse:\n    raise AssertionError('network socket unexpectedly allowed')\n"
+      ],
+      "name": "network-socket-denied",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "import os; assert os.readlink('/proc/self/ns/pid') != 'pid:[4026531836]'"
+      ],
+      "name": "pid-namespace-isolated",
+      "passed": true,
+      "returncode": 0,
+      "stderr": "",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"invalid-profile\"}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "from pathlib import Path; Path('/var/lib/safety-fixtures/workspace/must-not-exist').write_text('ok')"
+      ],
+      "name": "setup-failure-does-not-execute",
+      "passed": true,
+      "returncode": 2,
+      "stderr": "error: invalid value '{\"type\": \"invalid-profile\"}' for '--permission-profile <PERMISSION_PROFILE>': invalid permission profile JSON: data did not match any variant of untagged enum PermissionProfileDe\n\nFor more information, try '--help'.\n",
+      "stdout": ""
+    },
+    {
+      "argv": [
+        "/usr/local/bin/codex-linux-sandbox",
+        "--sandbox-policy-cwd",
+        "/var/lib/safety-fixtures/workspace",
+        "--permission-profile",
+        "{\"type\": \"managed\", \"network\": \"restricted\", \"file_system\": {\"type\": \"restricted\", \"entries\": [{\"path\": {\"type\": \"path\", \"path\": \"/\"}, \"access\": \"read\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace\"}, \"access\": \"write\"}, {\"path\": {\"type\": \"path\", \"path\": \"/var/lib/safety-fixtures/workspace/protected\"}, \"access\": \"read\"}]}}",
+        "--",
+        "/usr/bin/python3",
+        "-c",
+        "from pathlib import Path; Path('/var/lib/safety-fixtures/workspace/missing-bwrap-ran').write_text('ok')"
+      ],
+      "name": "missing-bwrap-does-not-execute",
+      "passed": true,
+      "returncode": 101,
+      "stderr": "\nthread 'main' (738) panicked at linux-sandbox/src/launcher.rs:60:13:\nbubblewrap is unavailable: no system bwrap was found on PATH and no bundled codex-resources/bwrap binary was found next to the Codex executable\nnote: run with `RUST_BACKTRACE=1` environment variable to display a backtrace\n",
+      "stdout": ""
+    },
+    {
+      "name": "missing-bwrap-no-side-effect",
+      "passed": true
+    },
+    {
+      "name": "setup-failure-no-side-effect",
+      "passed": true
+    },
+    {
+      "name": "protected-sentinel-unchanged",
+      "passed": true
+    }
+  ],
+  "vm_configuration": {
+    "kernel.apparmor_restrict_unprivileged_userns": "0",
+    "user.max_user_namespaces": "3805"
+  },
+  "vm_command": [
+    "timeout",
+    "600",
+    "qemu-system-x86_64",
+    "-machine",
+    "accel=tcg",
+    "-cpu",
+    "max",
+    "-m",
+    "1024",
+    "-smp",
+    "2",
+    "-kernel",
+    "/home/egly443/Projects/safety/.tools/vm/vmlinuz",
+    "-append",
+    "root=PARTUUID=e4b514e9-f821-40c5-90b6-f8bb12336fc7 ro console=ttyS0 systemd.mask=systemd-networkd-wait-online.service",
+    "-display",
+    "none",
+    "-serial",
+    "file:/home/egly443/Projects/safety/evidence/containment-vm.log",
+    "-monitor",
+    "none",
+    "-nic",
+    "none",
+    "-snapshot",
+    "-drive",
+    "file=/home/egly443/Projects/safety/.tools/vm/ubuntu-24.04-minimal-20261027-amd64.img,format=qcow2,if=virtio",
+    "-drive",
+    "file=/home/egly443/Projects/safety/.tools/vm/containment-seed.iso,format=raw,media=cdrom",
+    "-drive",
+    "file=/home/egly443/Projects/safety/.tools/vm/payload.iso,format=raw,media=cdrom",
+    "-no-reboot"
+  ],
+  "source_pins": {
+    "provenance": "Pins supplied by session transcript; upstream HEAD and tag commits verified by make fetch on 2026-10-28",
+    "codex": {
+      "url": "https://github.com/openai/codex.git",
+      "tag": "rust-v0.165.0",
+      "commit": "360319d8dee62d87e2d59fc0c21805d79519cfed"
+    },
+    "bubblewrap": {
+      "url": "https://github.com/containers/bubblewrap.git",
+      "tag": "v0.13.1",
+      "commit": "362936aea0d5c6e70f7af75d2d44b5a914cb4ba2"
+    }
+  },
+  "build_lock_sha256": "a646d4b01a0e8c62f6af9b74fb965c1bd6d3cf27a547984de09730d50e0e64da"
+}

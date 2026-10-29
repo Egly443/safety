@@ -1,0 +1,24 @@
+{
+  "command": [
+    "cargo",
+    "kani",
+    "--manifest-path",
+    "/home/egly443/Projects/safety/.tools/kani-source/codex-rs/Cargo.toml",
+    "--target-dir",
+    "/home/egly443/Projects/safety/.tools/kani-target",
+    "-p",
+    "codex-sandboxing",
+    "--harness",
+    "actual_policy_smoke"
+  ],
+  "cwd": "/home/egly443/Projects/safety/.tools/kani-source/codex-rs",
+  "started_utc": "2026-10-29T01:40:31.921036+00:00",
+  "wall_limit_seconds": 1200,
+  "rss_limit_bytes": 4294967296,
+  "rss_guard": "sampled aggregate process-group RSS, one-second interval",
+  "minimum_free_bytes": 22418808832,
+  "exit_code": 1,
+  "stop_reason": null,
+  "elapsed_seconds": 12.026,
+  "peak_sampled_rss_bytes": 170336256
+}

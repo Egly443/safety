@@ -1,0 +1,4 @@
+bc114a93fda4d0fe2da6dadc961efe593b9a4ab06f71a4f1c86f7cd44ec10ee4  .tools/bin/bwrap
+07f2462867569a2119a2ad0f1593232663f2d1612b791c230d22a8d73a15abee  .tools/debs/libcap-dev_1%3a2.66-5ubuntu2.4_amd64.deb
+23c627c77c66552a658e62852f244f4946dc543898e0ec5428d5dc6bffde2d6a  .tools/debs/libcap2_1%3a2.66-5ubuntu2.4_amd64.deb
+32e2b484d73ede0bbf64a2cf0879c4259422497d8aec4ee67d448de9ae7843d3  .tools/kani-0.68.0-x86_64-unknown-linux-gnu.tar.gz

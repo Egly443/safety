@@ -1,0 +1,20 @@
+{
+  "status": "verification_inconclusive",
+  "actual_crate_compiled": true,
+  "harness_reached": true,
+  "proof_completed": false,
+  "counterexample_obtained": false,
+  "attempts": [
+    {
+      "fixture": "large_path_unwind_64",
+      "resources": "kani-large-path-resources.json",
+      "stop_reason": "rss_limit"
+    },
+    {
+      "fixture": "short_path_unwind_16",
+      "resources": "kani-feasibility-resources.json",
+      "stop_reason": "wall_limit"
+    }
+  ],
+  "cloud_task_started": false
+}
