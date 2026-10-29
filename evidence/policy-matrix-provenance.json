@@ -1,0 +1,40 @@
+{
+  "started_utc": "2026-10-29T10:06:03.170973+00:00",
+  "source_manifest": {
+    "commit": "360319d8dee62d87e2d59fc0c21805d79519cfed",
+    "source_sha256": {
+      "codex-rs/sandboxing/src/policy_transforms.rs": "476149951168b716e0010985e5c98b1e6bb7f9627c074621aa22249964b983a9",
+      "codex-rs/protocol/src/permissions.rs": "ba815705a004571cb1772d9ae97c30075fc6e3ed16c1a1b151ad64c0d459e0dd",
+      "codex-rs/utils/path-uri/src/lib.rs": "9758b664571dd19490fa844d67d8c43683db8eace98929a4545bf613f1cd1eba"
+    },
+    "hook": "\n#[cfg(kani)]\n#[path = \"/workspace/safety/verification/kani/narrow_policy.rs\"]\nmod confinement_verification;\n",
+    "harness_sha256": "8b3a4f60965d27800003875f9d48fa5a3d7fc9292e12223ee382d17b9c1993fc",
+    "lock_sha256": "a646d4b01a0e8c62f6af9b74fb965c1bd6d3cf27a547984de09730d50e0e64da",
+    "stubs": [],
+    "production_function_changes": []
+  },
+  "matrix_sha256": "63f63088e1b5e0e9378fbd463753ba8495dc8091e918ef426d27e94bdd9b41e4",
+  "build_command": [
+    "cargo",
+    "+1.99.1",
+    "build",
+    "--locked",
+    "--manifest-path",
+    "/workspace/safety/.tools/kani-source/codex-rs/Cargo.toml",
+    "--target-dir",
+    "/workspace/safety/.tools/native-policy-target",
+    "-p",
+    "codex-sandboxing",
+    "--example",
+    "policy_matrix"
+  ],
+  "rustc": "rustc 1.99.1 (58cf8f9c3 2026-10-13)",
+  "build_runner_exit_code": 0,
+  "binary_sha256": "19af35e0754e1e022f8872f0a944fd19876137a0f07ebd6630e0fbf7f0400080",
+  "execution_exit_code": 0,
+  "observations": 3960,
+  "structural_checks": 1800,
+  "failures": 0,
+  "source_check_exit_code": 0,
+  "finished_utc": "2026-10-29T10:09:18.603960+00:00"
+}

@@ -1,0 +1,177 @@
+{
+  "native": {
+    "fixture_sha256": "de38b6f1e088a5ee60e432b56ff11ba3ddbfa83abd42060d3840c244166ec433",
+    "source_manifest": {
+      "commit": "360319d8dee62d87e2d59fc0c21805d79519cfed",
+      "source_sha256": {
+        "codex-rs/sandboxing/src/policy_transforms.rs": "476149951168b716e0010985e5c98b1e6bb7f9627c074621aa22249964b983a9",
+        "codex-rs/protocol/src/permissions.rs": "ba815705a004571cb1772d9ae97c30075fc6e3ed16c1a1b151ad64c0d459e0dd",
+        "codex-rs/utils/path-uri/src/lib.rs": "9758b664571dd19490fa844d67d8c43683db8eace98929a4545bf613f1cd1eba"
+      },
+      "hook": "\n#[cfg(kani)]\n#[path = \"/workspace/safety/verification/kani/narrow_policy.rs\"]\nmod confinement_verification;\n",
+      "harness_sha256": "8b3a4f60965d27800003875f9d48fa5a3d7fc9292e12223ee382d17b9c1993fc",
+      "lock_sha256": "a646d4b01a0e8c62f6af9b74fb965c1bd6d3cf27a547984de09730d50e0e64da",
+      "stubs": [],
+      "production_function_changes": []
+    },
+    "runs": [
+      {
+        "name": "positive",
+        "command": [
+          "/workspace/safety/.tools/native-policy-target/debug/examples/protected_entry_preservation"
+        ],
+        "exit_code": 0,
+        "outcome": "passed",
+        "observed": {
+          "case": "protected_entry_preservation_v1",
+          "claim": "entries_preserved",
+          "claim_holds": true,
+          "depth_unchanged": true,
+          "entry_count": 3,
+          "original_prefix_retained": true,
+          "protected_retained": true,
+          "restricted": true,
+          "root_retained": true,
+          "workspace_grants": 1
+        }
+      },
+      {
+        "name": "false_removal_control",
+        "command": [
+          "/workspace/safety/.tools/native-policy-target/debug/examples/protected_entry_preservation",
+          "--claim-protected-removed"
+        ],
+        "exit_code": 1,
+        "outcome": "expected_failure",
+        "observed": {
+          "case": "protected_entry_preservation_v1",
+          "claim": "protected_entry_removed",
+          "claim_holds": false,
+          "depth_unchanged": true,
+          "entry_count": 3,
+          "original_prefix_retained": true,
+          "protected_retained": true,
+          "restricted": true,
+          "root_retained": true,
+          "workspace_grants": 1
+        }
+      }
+    ],
+    "build_command": [
+      "cargo",
+      "+1.99.1",
+      "build",
+      "--locked",
+      "--manifest-path",
+      "/workspace/safety/.tools/kani-source/codex-rs/Cargo.toml",
+      "--target-dir",
+      "/workspace/safety/.tools/native-policy-target",
+      "-p",
+      "codex-sandboxing",
+      "--example",
+      "protected_entry_preservation"
+    ],
+    "build_exit_code": 0,
+    "binary_sha256": "ea20c70cc1a265acace2f5030e70e118b77b5c84c2de0b6fb45d9b9917e5d9bd",
+    "source_check_exit_code": 0
+  },
+  "formal": {
+    "harness_sha256": "de38b6f1e088a5ee60e432b56ff11ba3ddbfa83abd42060d3840c244166ec433",
+    "production_source_manifest": {
+      "commit": "360319d8dee62d87e2d59fc0c21805d79519cfed",
+      "source_sha256": {
+        "codex-rs/sandboxing/src/policy_transforms.rs": "476149951168b716e0010985e5c98b1e6bb7f9627c074621aa22249964b983a9",
+        "codex-rs/protocol/src/permissions.rs": "ba815705a004571cb1772d9ae97c30075fc6e3ed16c1a1b151ad64c0d459e0dd",
+        "codex-rs/utils/path-uri/src/lib.rs": "9758b664571dd19490fa844d67d8c43683db8eace98929a4545bf613f1cd1eba"
+      },
+      "hook": "\n#[cfg(kani)]\n#[path = \"/workspace/safety/verification/kani/narrow_policy.rs\"]\nmod confinement_verification;\n",
+      "harness_sha256": "8b3a4f60965d27800003875f9d48fa5a3d7fc9292e12223ee382d17b9c1993fc",
+      "lock_sha256": "a646d4b01a0e8c62f6af9b74fb965c1bd6d3cf27a547984de09730d50e0e64da",
+      "stubs": [],
+      "production_function_changes": []
+    },
+    "runs": [
+      {
+        "harness": "check_preservation_contract",
+        "runner_exit_code": 124,
+        "outcome": "inconclusive",
+        "command": [
+          "/workspace/safety/.venv/bin/python3",
+          "/workspace/safety/scripts/run-limited.py",
+          "--seconds",
+          "180",
+          "--rss-gib",
+          "8",
+          "--cwd",
+          "/workspace/safety/.tools/kani-source/codex-rs",
+          "--record",
+          "/workspace/safety/.tools/kani-protected-preservation/check_preservation_contract.resources.json",
+          "--log",
+          "/workspace/safety/.tools/kani-protected-preservation/check_preservation_contract.log",
+          "--",
+          "cargo",
+          "kani",
+          "--manifest-path",
+          "/workspace/safety/.tools/kani-source/codex-rs/Cargo.toml",
+          "--target-dir",
+          "/workspace/safety/.tools/kani-target",
+          "-p",
+          "codex-sandboxing",
+          "--exact",
+          "--harness",
+          "staged_policy_verification::check_preservation_contract",
+          "-Z",
+          "function-contracts"
+        ],
+        "checks_failed": null,
+        "checks_total": null,
+        "log_sha256": "46bccbdbd148148ce01c87d81f95cc1aed6a6a752a949ff2e190d6a3d2d1202f"
+      },
+      {
+        "harness": "protected_removed_must_fail",
+        "outcome": "skipped_positive_incomplete",
+        "runner_exit_code": null,
+        "command": null
+      }
+    ]
+  },
+  "formal_resources": {
+    "command": [
+      "cargo",
+      "kani",
+      "--manifest-path",
+      "/workspace/safety/.tools/kani-source/codex-rs/Cargo.toml",
+      "--target-dir",
+      "/workspace/safety/.tools/kani-target",
+      "-p",
+      "codex-sandboxing",
+      "--exact",
+      "--harness",
+      "staged_policy_verification::check_preservation_contract",
+      "-Z",
+      "function-contracts"
+    ],
+    "cwd": "/workspace/safety/.tools/kani-source/codex-rs",
+    "status": "stopped",
+    "started_utc": "2026-10-29T12:41:19.573495+00:00",
+    "wall_limit_seconds": 180,
+    "rss_limit_bytes": 8589934592,
+    "rss_guard": "sampled aggregate process-group RSS, one-second interval",
+    "minimum_free_bytes": 11761274880,
+    "elapsed_seconds": 180.261,
+    "peak_sampled_rss_bytes": 2344595456,
+    "exit_code": -15,
+    "stop_reason": "wall_limit"
+  },
+  "formal_log_has_selected_harness_line": false,
+  "formal_log_has_verification_summary": false,
+  "instrumentation_process_observation": "  29917   29916   29917 Ss    0.0  1368       02:48 cargo-kani\n  29922   29917   29917 Sl    0.0 25572       02:48 kani-driver\n  29957   29922   29917 R    99.8 254880      02:34 goto-instrument\n",
+  "matrix_regression": {
+    "exit_code": 0,
+    "identical_to_saved": true,
+    "observations": 3960,
+    "structural_checks": 1800,
+    "failures": 0,
+    "elapsed_seconds": 0.2983576010010438
+  }
+}

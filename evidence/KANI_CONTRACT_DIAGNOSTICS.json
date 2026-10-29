@@ -1,0 +1,516 @@
+{
+  "source_manifest": {
+    "commit": "360319d8dee62d87e2d59fc0c21805d79519cfed",
+    "source_sha256": {
+      "codex-rs/sandboxing/src/policy_transforms.rs": "476149951168b716e0010985e5c98b1e6bb7f9627c074621aa22249964b983a9",
+      "codex-rs/protocol/src/permissions.rs": "ba815705a004571cb1772d9ae97c30075fc6e3ed16c1a1b151ad64c0d459e0dd",
+      "codex-rs/utils/path-uri/src/lib.rs": "9758b664571dd19490fa844d67d8c43683db8eace98929a4545bf613f1cd1eba"
+    },
+    "hook": "\n#[cfg(kani)]\n#[path = \"/workspace/safety/verification/kani/narrow_policy.rs\"]\nmod confinement_verification;\n",
+    "harness_sha256": "8b3a4f60965d27800003875f9d48fa5a3d7fc9292e12223ee382d17b9c1993fc",
+    "lock_sha256": "a646d4b01a0e8c62f6af9b74fb965c1bd6d3cf27a547984de09730d50e0e64da",
+    "stubs": [],
+    "production_function_changes": []
+  },
+  "budget_seconds": 180,
+  "rss_gib": 8,
+  "unwind": 16,
+  "runs": [
+    {
+      "case": "preservation",
+      "mode": "ordinary",
+      "label": "positive",
+      "outcome": "inconclusive",
+      "runner_exit_code": 124,
+      "command": [
+        "cargo",
+        "kani",
+        "--manifest-path",
+        "/workspace/safety/.tools/kani-source/codex-rs/Cargo.toml",
+        "--target-dir",
+        "/workspace/safety/.tools/kani-target",
+        "-p",
+        "codex-sandboxing",
+        "--exact",
+        "--harness",
+        "staged_diagnostic::check_preservation_contract",
+        "-Z",
+        "function-contracts"
+      ],
+      "snapshot_sha256": "008558923b40b31bb5df9483c098a9da0269f67425d097adaab61e52666d74a5",
+      "resources": {
+        "command": [
+          "cargo",
+          "kani",
+          "--manifest-path",
+          "/workspace/safety/.tools/kani-source/codex-rs/Cargo.toml",
+          "--target-dir",
+          "/workspace/safety/.tools/kani-target",
+          "-p",
+          "codex-sandboxing",
+          "--exact",
+          "--harness",
+          "staged_diagnostic::check_preservation_contract",
+          "-Z",
+          "function-contracts"
+        ],
+        "cwd": "/workspace/safety/.tools/kani-source/codex-rs",
+        "status": "stopped",
+        "started_utc": "2026-10-29T12:52:06.762791+00:00",
+        "wall_limit_seconds": 180,
+        "rss_limit_bytes": 8589934592,
+        "rss_guard": "sampled aggregate process-group RSS, one-second interval",
+        "minimum_free_bytes": 11711741952,
+        "elapsed_seconds": 180.275,
+        "peak_sampled_rss_bytes": 4685754368,
+        "exit_code": -15,
+        "stop_reason": "wall_limit"
+      },
+      "sampled_cpu_seconds": 175.14,
+      "checks_failed": null,
+      "checks_total": null,
+      "failed_descriptions": [],
+      "log_sha256": "8f46fc40f8b686a78880012287a4e4d960b785534bff864e4294a8707ff21046",
+      "checking_harness_logged": true,
+      "solver_logged": false,
+      "directory": "/workspace/safety/.tools/kani-contract-diagnostics/preservation/ordinary"
+    },
+    {
+      "case": "preservation",
+      "mode": "ordinary",
+      "label": "control",
+      "outcome": "skipped_positive_incomplete"
+    },
+    {
+      "case": "preservation",
+      "mode": "contract",
+      "label": "positive",
+      "outcome": "inconclusive",
+      "runner_exit_code": 124,
+      "command": [
+        "cargo",
+        "kani",
+        "--manifest-path",
+        "/workspace/safety/.tools/kani-source/codex-rs/Cargo.toml",
+        "--target-dir",
+        "/workspace/safety/.tools/kani-target",
+        "-p",
+        "codex-sandboxing",
+        "--exact",
+        "--harness",
+        "staged_diagnostic::check_preservation_contract",
+        "-Z",
+        "function-contracts"
+      ],
+      "snapshot_sha256": "de38b6f1e088a5ee60e432b56ff11ba3ddbfa83abd42060d3840c244166ec433",
+      "resources": {
+        "command": [
+          "cargo",
+          "kani",
+          "--manifest-path",
+          "/workspace/safety/.tools/kani-source/codex-rs/Cargo.toml",
+          "--target-dir",
+          "/workspace/safety/.tools/kani-target",
+          "-p",
+          "codex-sandboxing",
+          "--exact",
+          "--harness",
+          "staged_diagnostic::check_preservation_contract",
+          "-Z",
+          "function-contracts"
+        ],
+        "cwd": "/workspace/safety/.tools/kani-source/codex-rs",
+        "status": "stopped",
+        "started_utc": "2026-10-29T12:55:08.089794+00:00",
+        "wall_limit_seconds": 180,
+        "rss_limit_bytes": 8589934592,
+        "rss_guard": "sampled aggregate process-group RSS, one-second interval",
+        "minimum_free_bytes": 11658825728,
+        "elapsed_seconds": 180.263,
+        "peak_sampled_rss_bytes": 2398965760,
+        "exit_code": -15,
+        "stop_reason": "wall_limit"
+      },
+      "sampled_cpu_seconds": 177.4,
+      "checks_failed": null,
+      "checks_total": null,
+      "failed_descriptions": [],
+      "log_sha256": "727829f57fb50993b033ed38a9ca63a1a85340ce821176db905d244a7803ab75",
+      "checking_harness_logged": false,
+      "solver_logged": false,
+      "directory": "/workspace/safety/.tools/kani-contract-diagnostics/preservation/contract"
+    },
+    {
+      "case": "preservation",
+      "mode": "contract",
+      "label": "control",
+      "outcome": "skipped_positive_incomplete"
+    },
+    {
+      "case": "bytes",
+      "mode": "ordinary",
+      "label": "positive",
+      "outcome": "passed",
+      "runner_exit_code": 0,
+      "command": [
+        "kani",
+        "/workspace/safety/.tools/kani-contract-diagnostics/bytes/ordinary/fixture.rs",
+        "--exact",
+        "--harness",
+        "check_probe",
+        "-Z",
+        "function-contracts"
+      ],
+      "snapshot_sha256": "d7df8632403935e4b83a67f29bb3d73ec4fd548522ea45a11ce0131320a40c0d",
+      "resources": {
+        "command": [
+          "kani",
+          "/workspace/safety/.tools/kani-contract-diagnostics/bytes/ordinary/fixture.rs",
+          "--exact",
+          "--harness",
+          "check_probe",
+          "-Z",
+          "function-contracts"
+        ],
+        "cwd": "/workspace/safety/.tools/kani-contract-diagnostics/bytes/ordinary",
+        "status": "finished",
+        "started_utc": "2026-10-29T12:58:09.020500+00:00",
+        "wall_limit_seconds": 180,
+        "rss_limit_bytes": 8589934592,
+        "rss_guard": "sampled aggregate process-group RSS, one-second interval",
+        "minimum_free_bytes": 11661438976,
+        "elapsed_seconds": 4.006,
+        "peak_sampled_rss_bytes": 87564288,
+        "exit_code": 0,
+        "stop_reason": null
+      },
+      "sampled_cpu_seconds": 1.14,
+      "checks_failed": 0,
+      "checks_total": 569,
+      "failed_descriptions": [],
+      "log_sha256": "99e44c703e9de51a4cf9672eb4d21d17bd29b82fdd7fbdc99e67e4963a1e3806",
+      "checking_harness_logged": true,
+      "solver_logged": true,
+      "directory": "/workspace/safety/.tools/kani-contract-diagnostics/bytes/ordinary"
+    },
+    {
+      "case": "bytes",
+      "mode": "ordinary",
+      "label": "control",
+      "outcome": "expected_failure",
+      "runner_exit_code": 1,
+      "command": [
+        "kani",
+        "/workspace/safety/.tools/kani-contract-diagnostics/bytes/ordinary/fixture.rs",
+        "--exact",
+        "--harness",
+        "probe_must_fail",
+        "-Z",
+        "function-contracts"
+      ],
+      "snapshot_sha256": "d7df8632403935e4b83a67f29bb3d73ec4fd548522ea45a11ce0131320a40c0d",
+      "resources": {
+        "command": [
+          "kani",
+          "/workspace/safety/.tools/kani-contract-diagnostics/bytes/ordinary/fixture.rs",
+          "--exact",
+          "--harness",
+          "probe_must_fail",
+          "-Z",
+          "function-contracts"
+        ],
+        "cwd": "/workspace/safety/.tools/kani-contract-diagnostics/bytes/ordinary",
+        "status": "finished",
+        "started_utc": "2026-10-29T12:58:14.044003+00:00",
+        "wall_limit_seconds": 180,
+        "rss_limit_bytes": 8589934592,
+        "rss_guard": "sampled aggregate process-group RSS, one-second interval",
+        "minimum_free_bytes": 11661217792,
+        "elapsed_seconds": 4.009,
+        "peak_sampled_rss_bytes": 93663232,
+        "exit_code": 1,
+        "stop_reason": null
+      },
+      "sampled_cpu_seconds": 1.32,
+      "checks_failed": 1,
+      "checks_total": 569,
+      "failed_descriptions": [
+        "assertion failed: !probe()"
+      ],
+      "log_sha256": "d79aad00d3f48966c4e3e4311227e627551e9923a44997b247d3cfcc1c658474",
+      "checking_harness_logged": true,
+      "solver_logged": true,
+      "directory": "/workspace/safety/.tools/kani-contract-diagnostics/bytes/ordinary"
+    },
+    {
+      "case": "bytes",
+      "mode": "contract",
+      "label": "positive",
+      "outcome": "inconclusive",
+      "runner_exit_code": 124,
+      "command": [
+        "kani",
+        "/workspace/safety/.tools/kani-contract-diagnostics/bytes/contract/fixture.rs",
+        "--exact",
+        "--harness",
+        "check_probe",
+        "-Z",
+        "function-contracts"
+      ],
+      "snapshot_sha256": "358197ab539115c28554102c652f093a59aae80e2909ecc941bb0901ddde4764",
+      "resources": {
+        "command": [
+          "kani",
+          "/workspace/safety/.tools/kani-contract-diagnostics/bytes/contract/fixture.rs",
+          "--exact",
+          "--harness",
+          "check_probe",
+          "-Z",
+          "function-contracts"
+        ],
+        "cwd": "/workspace/safety/.tools/kani-contract-diagnostics/bytes/contract",
+        "status": "stopped",
+        "started_utc": "2026-10-29T12:58:19.054199+00:00",
+        "wall_limit_seconds": 180,
+        "rss_limit_bytes": 8589934592,
+        "rss_guard": "sampled aggregate process-group RSS, one-second interval",
+        "minimum_free_bytes": 11660984320,
+        "elapsed_seconds": 40.069,
+        "peak_sampled_rss_bytes": 8790466560,
+        "exit_code": -15,
+        "stop_reason": "rss_limit"
+      },
+      "sampled_cpu_seconds": 36.830000000000005,
+      "checks_failed": null,
+      "checks_total": null,
+      "failed_descriptions": [],
+      "log_sha256": "2998655400e8b1b9713077f8591dd6794a94dbcd21dbeb378f8b90b21058c9a0",
+      "checking_harness_logged": true,
+      "solver_logged": false,
+      "directory": "/workspace/safety/.tools/kani-contract-diagnostics/bytes/contract"
+    },
+    {
+      "case": "bytes",
+      "mode": "contract",
+      "label": "control",
+      "outcome": "skipped_positive_incomplete"
+    }
+  ],
+  "stop_reason": "Stop type growth: bytes did not complete with its controls",
+  "completed": true,
+  "executed_driver_sha256": "36aff3e7f538a0461fab4b2989792ed8570700fc788a470c77b92686d07bbca8",
+  "contract_warnings": [
+    "file library/kani_core/src/lib.rs line 710 column 45 function kani::internal::enter_contract_clause: call to '_RNvMs9_NtCs8xvirJzNMvV_4core3numj14saturating_add': not enough arguments, inserting non-deterministic value",
+    "file library/kani_core/src/lib.rs line 723 column 45 function kani::internal::exit_contract_clause: call to '_RNvMs9_NtCs8xvirJzNMvV_4core3numj14saturating_sub': not enough arguments, inserting non-deterministic value"
+  ],
+  "matrix_replay": {
+    "exit_code": 0,
+    "identical_to_saved": true,
+    "observations": 3960,
+    "structural_checks": 1800,
+    "failures": 0,
+    "elapsed_seconds": 0.3309831549995579
+  },
+  "phase_summaries": [
+    {
+      "case": "preservation",
+      "mode": "ordinary",
+      "label": "positive",
+      "process_phases": {
+        "python3": {
+          "first_seen_seconds": 0.008940637999330647,
+          "last_seen_seconds": 179.515118755,
+          "sampled_cpu_seconds": 0.26
+        },
+        "cargo-kani": {
+          "first_seen_seconds": 1.0120320050009468,
+          "last_seen_seconds": 179.515118755,
+          "sampled_cpu_seconds": 0.02
+        },
+        "kani-driver": {
+          "first_seen_seconds": 1.0120320050009468,
+          "last_seen_seconds": 179.515118755,
+          "sampled_cpu_seconds": 0.18
+        },
+        "cargo": {
+          "first_seen_seconds": 1.0120320050009468,
+          "last_seen_seconds": 6.028346989998681,
+          "sampled_cpu_seconds": 0.47
+        },
+        "kani-compiler": {
+          "first_seen_seconds": 2.015370389999589,
+          "last_seen_seconds": 6.028346989998681,
+          "sampled_cpu_seconds": 4.65
+        },
+        "goto-cc": {
+          "first_seen_seconds": 7.031589704001817,
+          "last_seen_seconds": 13.059749902000476,
+          "sampled_cpu_seconds": 6.63
+        },
+        "goto-instrument": {
+          "first_seen_seconds": 14.061585667001054,
+          "last_seen_seconds": 29.097705295000196,
+          "sampled_cpu_seconds": 13.43
+        },
+        "cbmc": {
+          "first_seen_seconds": 30.10335594099888,
+          "last_seen_seconds": 179.515118755,
+          "sampled_cpu_seconds": 149.5
+        }
+      }
+    },
+    {
+      "case": "preservation",
+      "mode": "contract",
+      "label": "positive",
+      "process_phases": {
+        "python3": {
+          "first_seen_seconds": 0.00286580199826858,
+          "last_seen_seconds": 179.49322548399869,
+          "sampled_cpu_seconds": 0.25
+        },
+        "cargo-kani": {
+          "first_seen_seconds": 1.0053674369992223,
+          "last_seen_seconds": 179.49322548399869,
+          "sampled_cpu_seconds": 0.03
+        },
+        "kani-driver": {
+          "first_seen_seconds": 1.0053674369992223,
+          "last_seen_seconds": 179.49322548399869,
+          "sampled_cpu_seconds": 0.06
+        },
+        "cargo": {
+          "first_seen_seconds": 1.0053674369992223,
+          "last_seen_seconds": 5.027397385001677,
+          "sampled_cpu_seconds": 0.43
+        },
+        "kani-compiler": {
+          "first_seen_seconds": 2.0098485439993965,
+          "last_seen_seconds": 5.027397385001677,
+          "sampled_cpu_seconds": 3.68
+        },
+        "goto-cc": {
+          "first_seen_seconds": 6.030090927000856,
+          "last_seen_seconds": 13.048013774001447,
+          "sampled_cpu_seconds": 6.8
+        },
+        "goto-instrument": {
+          "first_seen_seconds": 14.050517122999736,
+          "last_seen_seconds": 179.49322548399869,
+          "sampled_cpu_seconds": 166.15
+        }
+      }
+    },
+    {
+      "case": "bytes",
+      "mode": "ordinary",
+      "label": "positive",
+      "process_phases": {
+        "python3": {
+          "first_seen_seconds": 0.0020939519999956246,
+          "last_seen_seconds": 4.0145321159980085,
+          "sampled_cpu_seconds": 0.03
+        },
+        "kani": {
+          "first_seen_seconds": 1.0073831789995893,
+          "last_seen_seconds": 4.0145321159980085,
+          "sampled_cpu_seconds": 0.0
+        },
+        "kani-driver": {
+          "first_seen_seconds": 1.0073831789995893,
+          "last_seen_seconds": 3.0121461219969206,
+          "sampled_cpu_seconds": 0.0
+        },
+        "goto-cc": {
+          "first_seen_seconds": 1.0073831789995893,
+          "last_seen_seconds": 1.0073831789995893,
+          "sampled_cpu_seconds": 0.2
+        },
+        "goto-instrument": {
+          "first_seen_seconds": 2.009643472996686,
+          "last_seen_seconds": 2.009643472996686,
+          "sampled_cpu_seconds": 0.05
+        },
+        "cbmc": {
+          "first_seen_seconds": 3.0121461219969206,
+          "last_seen_seconds": 3.0121461219969206,
+          "sampled_cpu_seconds": 0.86
+        }
+      }
+    },
+    {
+      "case": "bytes",
+      "mode": "ordinary",
+      "label": "control",
+      "process_phases": {
+        "python3": {
+          "first_seen_seconds": 0.002660205998836318,
+          "last_seen_seconds": 4.017499467998277,
+          "sampled_cpu_seconds": 0.04
+        },
+        "kani": {
+          "first_seen_seconds": 1.0052860040013911,
+          "last_seen_seconds": 4.017499467998277,
+          "sampled_cpu_seconds": 0.0
+        },
+        "kani-driver": {
+          "first_seen_seconds": 1.0052860040013911,
+          "last_seen_seconds": 3.0098545539985935,
+          "sampled_cpu_seconds": 0.02
+        },
+        "goto-cc": {
+          "first_seen_seconds": 1.0052860040013911,
+          "last_seen_seconds": 1.0052860040013911,
+          "sampled_cpu_seconds": 0.16
+        },
+        "goto-instrument": {
+          "first_seen_seconds": 2.0075137179992453,
+          "last_seen_seconds": 2.0075137179992453,
+          "sampled_cpu_seconds": 0.14
+        },
+        "cbmc": {
+          "first_seen_seconds": 3.0098545539985935,
+          "last_seen_seconds": 3.0098545539985935,
+          "sampled_cpu_seconds": 0.96
+        }
+      }
+    },
+    {
+      "case": "bytes",
+      "mode": "contract",
+      "label": "positive",
+      "process_phases": {
+        "python3": {
+          "first_seen_seconds": 0.0023299349995795637,
+          "last_seen_seconds": 39.12637842099866,
+          "sampled_cpu_seconds": 0.07
+        },
+        "kani": {
+          "first_seen_seconds": 1.0047917859992594,
+          "last_seen_seconds": 39.12637842099866,
+          "sampled_cpu_seconds": 0.0
+        },
+        "kani-driver": {
+          "first_seen_seconds": 1.0047917859992594,
+          "last_seen_seconds": 39.12637842099866,
+          "sampled_cpu_seconds": 0.0
+        },
+        "goto-cc": {
+          "first_seen_seconds": 1.0047917859992594,
+          "last_seen_seconds": 1.0047917859992594,
+          "sampled_cpu_seconds": 0.2
+        },
+        "goto-instrument": {
+          "first_seen_seconds": 2.0131722100013576,
+          "last_seen_seconds": 5.0212952149995544,
+          "sampled_cpu_seconds": 2.97
+        },
+        "cbmc": {
+          "first_seen_seconds": 6.023915810001199,
+          "last_seen_seconds": 39.12637842099866,
+          "sampled_cpu_seconds": 33.59
+        }
+      }
+    }
+  ]
+}
